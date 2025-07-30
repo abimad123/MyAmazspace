@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - My Amazspace</title>
+    <meta name="description" content="Browse our curated selection of top-rated products across tech, kitchen, home, and fitness categories.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase App (Core SDK) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script type="module" src="scripts/firebase-config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>My Amazspace</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Products</a>
+                <a href="overview.html" class="nav-link ">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Filter Tabs + Search Bar -->
+    <section class="product-filters">
+        <div class="container">
+            <div class="search-wrapper">
+               <h1>Product Recommendations</h1>
+            <p>Carefully curated products that we've tested and genuinely recommend</p>
+                <input type="text" id="product-search" placeholder="Search products..." aria-label="Search products" />
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Products</button>
+                <button class="filter-tab" data-filter="Tech & Electronics">Tech & Electronics</button>
+                <button class="filter-tab" data-filter="Kitchen">Kitchen</button>
+                <button class="filter-tab" data-filter="Clothing">Clothing</button>
+                <button class="filter-tab" data-filter="Home & Living">Home & Living</button>
+                <button class="filter-tab" data-filter="Toys">Toys</button> 
+                    <button class="filter-tab" data-filter="Health & Fitness">Health & Fitness</button>
+            </div>
+             <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="newest">Newly Added</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="name-asc">Name: A-Z</option>
+                    <option value="name-desc">Name: Z-A</option>
+                </select>
+        </div>
+    </section>
+   <!-- Products Grid --> 
+  <div class="container">
+    <div class="products-grid" id="products-grid">
+      <!-- Product cards will be loaded here dynamically -->
+    </div>
+    <div class="container" style="text-align: center; margin: 2rem 0;">
+  <button id="view-more-btn" class="product-card-btn">View More Products</button>
+</div>
+  </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>My Amazspace</h3>
+                    <p>Honest product reviews and recommendations to help you make smart purchasing decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="overview.html">Home</a></li>
+                        <li><a href="index.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=tech">Tech & Electronics</a></li>
+                        <li><a href="products.html?category=kitchen">Kitchen Essentials</a></li>
+                        <li><a href="product.html?category=clothing">Clothing</a></li>
+                        <li><a href="products.html?category=home">Home & Living</a></li>
+                        <li><a href="products.html?category=fitness">Health & Fitness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 My Amazspace. All rights reserved.</p>
+                <p class="affiliate-notice">As an Amazon Associate, I earn from qualifying purchases.</p>
+            </div>
+        </div>
+    </footer>
+   <script src="scripts/main.js"></script>
+ <script type="module" src="scripts/products.js"></script>
+</body>
+</html>

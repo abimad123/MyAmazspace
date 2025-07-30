@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Amazspace</title>
+    <meta name="description" content="Get in touch with the My Amazspace team. We'd love to hear your feedback and product suggestions.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <!-- Firebase App (Core SDK) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script type="module" src="scripts/firebase-config.js"></script>
+</head>
+<body>
+   
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>My Amazspace</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="overview.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link">Products</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you. Whether you have questions, product suggestions, or feedback, we're here to help.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Connect</h2>
+                    <p>Have a product you'd like us to review? Found an error in one of our articles? Just want to say hello? We read every message and do our best to respond within 24 hours.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <div class="method-info">
+                                <h3>Email</h3>
+                                <p>hello@styleandspace.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">⏰</div>
+                            <div class="method-info">
+                                <h3>Response Time</h3>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">🌍</div>
+                            <div class="method-info">
+                                <h3>Based In</h3>
+                                <p>India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="firstName" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="lastName" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Choose a topic</option>
+                                <option value="product-suggestion">Product Suggestion</option>
+                                <option value="review-question">Question About a Review</option>
+                                <option value="error-report">Report an Error</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us more about your inquiry..." required></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter-signup" name="newsletter">
+                                <span class="checkbox-custom"></span>
+                                Subscribe to our newsletter for the latest reviews and recommendations
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        
+                        <div class="form-success" id="form-success" style="display: none;">
+                            <div class="success-icon">✓</div>
+                            <h3>Message Sent!</h3>
+                            <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How do you choose which products to review?</h3>
+                    <p>We select products based on reader requests, market trends, and our own research into what's popular or innovative. We prioritize products that our audience is actually interested in buying.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you accept products from manufacturers?</h3>
+                    <p>No, we purchase all products with our own money at full retail price. This ensures our reviews remain completely unbiased and honest.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long do you test products?</h3>
+                    <p>Testing periods vary by product type, but we typically use products for several weeks to months before writing our reviews. We want to understand long-term performance, not just first impressions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can you review a specific product I suggest?</h3>
+                    <p>Absolutely! We love reader suggestions. While we can't guarantee we'll review every suggested product, we consider all suggestions and prioritize those that align with our audience's interests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>My Amazspace</h3>
+                    <p>Honest product reviews and recommendations to help you make smart purchasing decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="overview.html">Home</a></li>
+                        <li><a href="index.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="index.html?category=tech">Tech & Electronics</a></li>
+                        <li><a href="index.html?category=kitchen">Kitchen Essentials</a></li>
+                        <li><a href="index.html?category=home">Home & Living</a></li>
+                        <li><a href="index.html?category=fitness">Health & Fitness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 My Amazspace. All rights reserved.</p>
+                <p class="affiliate-notice">As an Amazon Associate, I earn from qualifying purchases.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/contact.js"></script>
+</body>
+</html>
