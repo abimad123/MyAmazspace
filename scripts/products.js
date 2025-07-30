@@ -125,7 +125,7 @@ function renderProducts(products, reset = true) {
         </div>
         <div class="product-card-meta" style="margin-top: 12px;">
           <div class="product-card-price">₹${product.price || 0}</div>
-          <a href="${product.amazonLink}" class="product-card-btn" target="_blank">🔗 View the Product</a>
+          <a href="${product.amazonLink}" class="product-card-btn" target="_blank">View the Product</a>
         </div>
       </div>
     </div>
