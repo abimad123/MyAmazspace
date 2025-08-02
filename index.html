@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <!-- Firebase App (Core SDK) -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -19,18 +23,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>My Amazspace</h1>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link active">Products</a>
-                <a href="overview.html" class="nav-link ">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <h1 style="font-size: 2.5rem; font-family: 'Yellowtail', cursive; margin-left: 2.5rem;">My Amazspace</h1>
             </div>
         </div>
     </nav>
@@ -51,50 +44,56 @@
                 <button class="filter-tab" data-filter="Toys">Toys</button> 
                     <button class="filter-tab" data-filter="Health & Fitness">Health & Fitness</button>
             </div>
-             <label for="sort-select">Sort by:</label>
-                <select id="sort-select">
-                    <option value="newest">Newly Added</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="name-asc">Name: A-Z</option>
-                    <option value="name-desc">Name: Z-A</option>
-                </select>
+             <div class="sort-wrapper">
+  <label for="sort-select">Sort by:</label>
+  <select id="sort-select">
+    <option value="newest">Newly Added</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="name-asc">Name: A-Z</option>
+    <option value="name-desc">Name: Z-A</option>
+  </select>
+</div>
+
         </div>
     </section>
+
    <!-- Products Grid --> 
-  <div class="container">
-    <div class="products-grid" id="products-grid">
-      <!-- Product cards will be loaded here dynamically -->
-    </div>
-    <div class="container" style="text-align: center; margin: 2rem 0;">
-  <button id="view-more-btn" class="product-card-btn">View More Products</button>
-</div>
+   <div class="container">
+  <div class="products-grid" id="products-grid">
+    <!-- Product cards get injected here -->
   </div>
+
+  <div class="load-more-container" style="text-align: center; margin: 2rem 0;">
+    <button id="view-more-btn" class="product-card-btn">
+      View More Products
+    </button>
+  </div>
+</div>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="fcontainer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>My Amazspace</h3>
-                    <p>Honest product reviews and recommendations to help you make smart purchasing decisions.</p>
+                    <h3>My AmazSpace</h3>
+                    <p>Honest product reviews and recommendations to help you make smart purchasing decisions. AND    As an Amazon Associate, I earn from qualifying purchases.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="overview.html">Home</a></li>
                         <li><a href="index.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admin/login.html">BACK</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Categories</h4>
                     <ul>
-                        <li><a href="products.html?category=tech">Tech & Electronics</a></li>
-                        <li><a href="products.html?category=kitchen">Kitchen Essentials</a></li>
-                        <li><a href="product.html?category=clothing">Clothing</a></li>
-                        <li><a href="products.html?category=home">Home & Living</a></li>
-                        <li><a href="products.html?category=fitness">Health & Fitness</a></li>
+                        <li><a href="index.html?category=tech">Tech & Electronics</a></li>
+                        <li><a href="index.html?category=kitchen">Kitchen Essentials</a></li>
+                        <li><a href="index.html?category=clothing">Clothing</a></li>
+                        <li><a href="index.html?category=home">Home & Living</a></li>
+                        <li><a href="index.html?category=fitness">Health & Fitness</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
