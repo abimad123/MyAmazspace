@@ -48,21 +48,21 @@ filterTabs.forEach(tab => {
   });
 });
 
-// Search
-searchInput?.addEventListener("input", () => {
+// Search input (live)
+searchInput.addEventListener("input", () => {
   currentSearch = searchInput.value;
   currentPage = 1;
   applyFiltersAndSort(true);
 });
 
-// Sort
+// Sort select
 sortSelect?.addEventListener("change", e => {
   currentSort = e.target.value;
   currentPage = 1;
   applyFiltersAndSort(true);
 });
 
-// View More
+// View More Button
 viewMoreBtn?.addEventListener("click", () => {
   currentPage++;
   applyFiltersAndSort(false);
@@ -72,28 +72,33 @@ viewMoreBtn?.addEventListener("click", () => {
 function applyFiltersAndSort(reset = true) {
   let filtered = [...allProducts];
 
-  // Filter
+  // Category filter
   if (currentCategory !== "all") {
     filtered = filtered.filter(p => (p.category || '').toLowerCase() === currentCategory.toLowerCase());
   }
+
+  // Search filter
   if (currentSearch.trim() !== "") {
     const keyword = currentSearch.toLowerCase();
-    filtered = filtered.filter(p => (p.name || '').toLowerCase().includes(keyword));
+    filtered = filtered.filter(p =>
+      (p.title || p.name || '').toLowerCase().includes(keyword) ||
+      (p.category || '').toLowerCase().includes(keyword)
+    );
   }
 
-  // Sort
+  // Sorting
   switch (currentSort) {
     case "price-asc":
-      filtered.sort((a, b) => (a.price?.toString().replace(/[^\d.]/g, '') || 0) - (b.price?.toString().replace(/[^\d.]/g, '') || 0));
+      filtered.sort((a, b) => (parseFloat(a.price) || 0) - (parseFloat(b.price) || 0));
       break;
     case "price-desc":
-      filtered.sort((a, b) => (b.price?.toString().replace(/[^\d.]/g, '') || 0) - (a.price?.toString().replace(/[^\d.]/g, '') || 0));
+      filtered.sort((a, b) => (parseFloat(b.price) || 0) - (parseFloat(a.price) || 0));
       break;
     case "name-asc":
-      filtered.sort((a, b) => (a.title || '').toLowerCase().localeCompare((b.title || '').toLowerCase()));
+      filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
       break;
     case "name-desc":
-      filtered.sort((a, b) => (a.title || '').toLowerCase().localeCompare((b.title || '').toLowerCase()) * -1);
+      filtered.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
       break;
     case "newest":
     default:
@@ -101,16 +106,18 @@ function applyFiltersAndSort(reset = true) {
       break;
   }
 
+  // Pagination
   const start = 0;
   const end = currentPage * productsPerPage;
-  const toRender = filtered.slice(0, end);
+  const toRender = filtered.slice(start, end);
 
   renderProducts(toRender, reset);
 
+  // Show/hide View More button
   viewMoreBtn.style.display = toRender.length >= filtered.length ? "none" : "inline-block";
 }
 
-// Render
+// Render products
 function renderProducts(products, reset = true) {
   const html = products.map(product => `
     <div class="product-card" data-category="${product.category || ''}">
@@ -125,7 +132,7 @@ function renderProducts(products, reset = true) {
         </div>
         <div class="product-card-meta" style="margin-top: 12px;">
           <div class="product-card-price">₹${product.price || 0}</div>
-          <a href="${product.amazonLink}" class="product-card-btn" target="_blank">View the Product</a>
+          <a href="${product.amazonLink}" class="product-card-btn" target="_blank"> View on Amazon</a>
         </div>
       </div>
     </div>
@@ -137,3 +144,4 @@ function renderProducts(products, reset = true) {
     productsGrid.insertAdjacentHTML("beforeend", html);
   }
 }
+
