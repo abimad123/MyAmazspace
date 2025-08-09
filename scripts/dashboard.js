@@ -5,7 +5,7 @@
 
 const firebaseConfig = {
   apiKey: "AIzaSyAPXdtOIrAHuvwXSlP_oxPgwiCOXMkxMvU",
-  authDomain: "style-and-space.firebaseapp.com",
+  authDomain: "style-and-space.firebaseapp.com",  
   projectId: "style-and-space",
   storageBucket: "style-and-space.appspot.com",
   messagingSenderId: "741061813433",
@@ -138,4 +138,5 @@ firebase.auth().onAuthStateChanged(user => {
       .catch(error => {
         console.error('Logout error:', error);
       });
+
   });
